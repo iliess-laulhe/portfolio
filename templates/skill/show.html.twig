@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SkillController!{% endblock %}
+{% block body %}
+<section class="dark">
+    <h1 class="text-light text-center mb-5">Mes compétences</h1>
+    <div class="container" style="min-height: 75vh;">
+        <div class="row d-flex justify-content-center ">
+            {% for skill in skills %}
+                <div class=" card cards mt-3 mb-3 ms-3 me-3 text-center" style="width: 18rem;">
+                    <div class=" text-black hover-zoom">
+                        <img src="{{ skill.image }}" width="100px">
+                    </div>
+                        <p>{{ skill.name }}</p>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
