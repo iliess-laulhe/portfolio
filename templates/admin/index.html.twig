@@ -7,6 +7,8 @@
         <div class="card">
             <h4 class="title">{{ project.title }}</h4>
             <p class="description">{{ project.description }} </p>
+            <a href="{{ path('admin_edit', {'id': project.id}) }}">Éditer le projet</a>
+            <a href="{{ path('admin_deleteProject', {'id': project.id}) }}">supprimer le projet</a>
         </div>
     {% endfor %}
     <hr>
@@ -17,6 +19,8 @@
                     <img src="{{ skill.image }}" width="100px">
                 </div>
                 <p class="description">{{ skill.name }}</p>
+                <a href="{{ path('admin_deleteSkill', {'id': skill.id}) }}">supprimer le skill</a>
+
             </div>
     {% endfor %}
 {% endblock %}
