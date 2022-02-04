@@ -2,20 +2,25 @@
 
 {% block title %}Hello SkillController!{% endblock %}
 {% block body %}
-<section class="dark">
-    <h1 class="text-light text-center mb-5">Mes compétences</h1>
-    <div class="container" style="min-height: 75vh;">
-        <div class="row d-flex justify-content-center ">
-            {% for skill in skills %}
-                <div class=" card cards mt-3 mb-3 ms-3 me-3 text-center" style="width: 18rem;">
-                    <div class=" text-black hover-zoom">
-                        <img src="{{ skill.image }}" width="100px">
-                    </div>
-                        <p>{{ skill.name }}</p>
 
+    <div class="container bootstrap snippets bootdeys">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 content-card">
+                <div class="card-big-shadow">
+                    {% for skill in skills %}
+                        <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
+                            <div class="content">
+
+                                <div class=" text-black hover-zoom">
+                                    <img src="{{ skill.image }}" width="100px">
+                                </div>
+                                <p class="description">{{ skill.name }}</p>
+
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         </div>
     </div>
-</section>
 {% endblock %}

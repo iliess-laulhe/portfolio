@@ -4,32 +4,44 @@
 
 {% block body %}
 
-<section class="dark">
-    <div class="container py-4">
-        <h1 class="h1 text-center" id="pageHeaderTitle">Mes projets</h1>
+<div class="container bootstrap snippets bootdeys">
+    <div class="row">
         {% for project in projects %}
-        <article class="postcard dark blue">
-            <a class="postcard__img_link" href="#">
-                <img class="postcard__img" src="{{ project.imageProject }}" alt="Image Title" />
-            </a>
-            <div class="postcard__text">
-                <h1 class="text-light">{{ project.title }}</h1>
-                <div class="postcard__subtitle small">
-                    <time datetime="2020-05-25 12:00:00">
-                        <i class="fas fa-calendar-alt mr-2">{{ project.createdAt.format('d/m/Y') }}</i>
-                    </time>
-                </div>
-                <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">{{ project.description }}</div>
-                <ul class="postcard__tagbox">
-                    <a class="text-decoration-none" href="{{ project.projectLink }}"> {{ project.projectLink }} </a>
-                    <div class="m-2">
-                        <a width="30px" href="{{ project.githubLink }}"><img src="https://cdn.pixabay.com/photo/2017/08/05/11/24/logo-2582757_960_720.png" width="40px"></a>
+        <div class="col-md-4 col-sm-6 content-card">
+            <div class="card-big-shadow">
+                <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+                    <div class="content">
+                        <img src="{{ project.imageProject }}">
+                        <h6 class="category">{{ project.createdAt.format('d/m/Y') }}</h6>
+                        <h4 class="title">{{ project.title }}</h4>
+                        <p class="description">{{ project.description }} </p>
+                        <a class="text-decoration-none" href="{{ project.projectLink }}"> {{ project.projectLink }} </a>
+                        <div class="m-2">
+                            <a width="30px" href="{{ project.githubLink }}"><img src="https://cdn.pixabay.com/photo/2017/08/05/11/24/logo-2582757_960_720.png" width="40px"></a>
+                        </div>
                     </div>
-                </ul>
+                </div>
             </div>
-        </article>
+        </div>
         {% endfor %}
+
+        <div class="col-md-4 col-sm-6 content-card">
+            <div class="card-big-shadow">
+                {% for project in projects %}
+                <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
+                    <div class="content">
+                        <h6 class="category">{{ project.createdAt.format('d/m/Y') }}</h6>
+                        <h4 class="title">{{ project.title }}</h4>
+                        <p class="description">{{ project.description }}</p>
+                        <a class="text-decoration-none" href="{{ project.projectLink }}"> {{ project.projectLink }} </a>
+                        <div class="m-2">
+                            <a width="30px" href="{{ project.githubLink }}"><img src="https://cdn.pixabay.com/photo/2017/08/05/11/24/logo-2582757_960_720.png" width="40px"></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-</section>
+</div>
 {% endblock %}
