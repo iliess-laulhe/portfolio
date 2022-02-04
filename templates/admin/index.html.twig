@@ -4,28 +4,36 @@
 
 {% block body %}
     <div class="card mb-5">
-    <a href="{{ path('project_new') }}">Ajouter un projet</a>
-    <a href="{{ path('skill') }}">Ajouter un skill</a>
+        <button><a href="{{ path('project_new') }}">Ajouter un projet</a></button>
+        <button><a href="{{ path('skill') }}">Ajouter un skill</a></button>
     </div>
 
     {% for project in projects %}
-        <div class="card">
-            <h4 class="title">{{ project.title }}</h4>
-            <p class="description">{{ project.description }} </p>
-            <a href="{{ path('admin_edit', {'id': project.id}) }}">Éditer le projet</a>
-            <a href="{{ path('admin_deleteProject', {'id': project.id}) }}">supprimer le projet</a>
+        <div class="container">
+            <div class="row d-flex">
+                <div class="card">
+                    <h4 class="title">{{ project.title }}</h4>
+                    <p class="description">{{ project.description }} </p>
+                    <a href="{{ path('admin_edit', {'id': project.id}) }}">Éditer le projet</a>
+                    <a href="{{ path('admin_deleteProject', {'id': project.id}) }}">supprimer le projet</a>
+                </div>
+            </div>
         </div>
     {% endfor %}
     <hr>
 
     {% for skill in skills %}
-        <div class="card">
-            <div class=" text-black hover-zoom">
-                <img src="{{ skill.image }}" width="100px">
-            </div>
-            <p class="description">{{ skill.name }}</p>
-            <a href="{{ path('admin_deleteSkill', {'id': skill.id}) }}">supprimer le skill</a>
+        <div class="container">
+            <div class="row d-flex">
+                <div class="card">
+                    <div class=" text-black hover-zoom">
+                        <img src="{{ skill.image }}" width="100px">
+                    </div>
+                    <p class="description">{{ skill.name }}</p>
+                    <a href="{{ path('admin_deleteSkill', {'id': skill.id}) }}">supprimer le skill</a>
 
+                </div>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
