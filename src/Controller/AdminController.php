@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Message;
+
 use App\Entity\Project;
 use App\Entity\Skill;
 use App\Form\ProjectType;
@@ -63,9 +63,9 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/deleteProject/{id}", name="deleteSkill")
+     * @Route("/deleteSkill/{id}", name="deleteSkill")
      */
-    public function deleteSkill(Skill $skill, ManagerRegistry $managerRegistry,  EntityManagerInterface $entityManager): Response
+    public function delete(Skill $skill, ManagerRegistry $managerRegistry,  EntityManagerInterface $entityManager): Response
     {
         $entityManager = $managerRegistry->getManager();
         $entityManager->remove($skill);

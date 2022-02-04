@@ -5,9 +5,9 @@
 
     <div class="container bootstrap snippets bootdeys">
         <div class="row">
+            {% for skill in skills %}
             <div class="col-md-4 col-sm-6 content-card">
                 <div class="card-big-shadow">
-                    {% for skill in skills %}
                         <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
                             <div class="content">
 
@@ -18,9 +18,9 @@
 
                             </div>
                         </div>
-                    {% endfor %}
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
